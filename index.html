@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://flbulgarelli.github.io/headbreaker/js/headbreaker.js"></script>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    
+<body>
+  <div id="puzzle_canvas"></div>
+  <button id="solve-button">solve</button>
+  <button id="retry-button">retry</button>
+  <script>
+    var audio = new Audio('static/connect.wav');
+let picture = new Image();
+picture.src = 'static/2test.jpeg';
+picture.onload = () => {
+  const puzzle_canvas = new headbreaker.Canvas('puzzle_canvas', {
+    width: 800, height: 640,
+    pieceSize: 100, proximity: 20,
+    strokeWidth: 10, strokeColor: '#F0F0F0',
+    image: picture, fixed: true,
+    outline: new headbreaker.outline.Rounded(),
+    preventOffstageDrag: true,  borderFill: 8
+  });
+
+  puzzle_canvas.adjustImagesToPuzzleHeight();
+  puzzle_canvas.autogenerate({
+    //horizontalPiecesCount: 7,
+    verticalPiecesCount: 4,
+    insertsGenerator: headbreaker.generators.flipflop
+  });
+
+  puzzle_canvas.shuffle(0.6);
+  puzzle_canvas.attachSolvedValidator();
+  puzzle_canvas.draw();
+
+  
+  puzzle_canvas.onConnect((_piece, figure, _target, targetFigure) => {
+    // play sound
+    audio.play();
+
+    // paint borders on click
+    // of conecting and conected figures
+    figure.shape.stroke('yellow');
+    targetFigure.shape.stroke('yellow');
+    puzzle_canvas.redraw();
+
+    setTimeout(() => {
+      // restore border colors
+      // later
+      figure.shape.stroke('#F0F0F0');
+      targetFigure.shape.stroke('#F0F0F0');
+      puzzle_canvas.redraw();
+    }, 200);
+  });
+
+  puzzle_canvas.onDisconnect((it) => {
+    audio.play();
+  });
+
+  puzzle_canvas.registerKeyboardGestures();
+  //registerButtons('keyboard', puzzle_canvas);
+
+  document.getElementById("solve-button").onclick = ()=>complete();
+  document.getElementById("retry-button").onclick = ()=>puzzle_canvas.shuffle(0.6);
+  puzzle_canvas.onValid((validator) => complete())
+
+  let complete = () => {
+    puzzle_canvas.solve();
+    puzzle_canvas.redraw();
+    console.log("finish");
+  }
+}    
+  </script>
+</body>
+</html>
