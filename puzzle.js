@@ -1,24 +1,24 @@
-var audio = new Audio('static/connect.wav');
+let renderPuzzle = (image_name, stroke_width) => {
+  var audio = new Audio('static/connect.wav');
 let picture = new Image();
-picture.src = 'static/sinulog.jpg';
+picture.src = 'static/' + image_name;
 picture.onload = () => {
   const puzzle_canvas = new headbreaker.Canvas('puzzle_canvas', {
-    width: 800, height: 640,
+    width: 800, height: 550,
     pieceSize: 100, proximity: 20,
-    strokeWidth: 10, strokeColor: '#F0F0F0',
+    strokeWidth: stroke_width, strokeColor: '#F0F0F0',
     image: picture, fixed: true,
     outline: new headbreaker.outline.Rounded(),
-    preventOffstageDrag: true,  borderFill: 8
+    preventOffstageDrag: true
   });
 
   puzzle_canvas.adjustImagesToPuzzleHeight();
   puzzle_canvas.autogenerate({
-    //horizontalPiecesCount: 7,
     verticalPiecesCount: 4,
     insertsGenerator: headbreaker.generators.flipflop
   });
 
-  puzzle_canvas.shuffle(0.6);
+  puzzle_canvas.shuffle(0.8);
   puzzle_canvas.attachSolvedValidator();
   puzzle_canvas.draw();
 
@@ -47,15 +47,15 @@ picture.onload = () => {
   });
 
   puzzle_canvas.registerKeyboardGestures();
-  //registerButtons('keyboard', puzzle_canvas);
 
   document.getElementById("solve-button").onclick = ()=>complete();
-  document.getElementById("retry-button").onclick = ()=>puzzle_canvas.shuffle(0.6);
+  document.getElementById("retry-button").onclick = ()=>puzzle_canvas.shuffle(0.8);
   puzzle_canvas.onValid((validator) => complete())
 
   let complete = () => {
     puzzle_canvas.solve();
     puzzle_canvas.redraw();
-    console.log("finish");
+    showInfo();
   }
 }  
+};

@@ -3,54 +3,130 @@
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Sugbo Heritage Puzzle</title>
-        <link rel="shortcut icon" href="static/logo.png">
-        <meta name="description" content="puzzles with trivias about Cebuano heritage">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <script src="https://flbulgarelli.github.io/headbreaker/js/headbreaker.js"></script>
-        <link rel="stylesheet" href="styles.css">
-        <script src="puzzle.js"></script>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lilita+One|Poppins">
-
-  </head>
+<html lang="en">
+  <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <title>Sugbo Heritage Puzzle</title>
+      <link rel="shortcut icon" href="static/island.png">
+      <meta name="description" content="puzzles with trivias about Cebuano heritage">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <script src="https://flbulgarelli.github.io/headbreaker/js/headbreaker.js"></script>
+      <link rel="stylesheet" href="styles.css">
+      <script src="puzzle.js"></script>
+      <script src="confetti.js"></script>
+      <script src="modals.js"></script>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lilita+One|Poppins">
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    </head>
     
   <body>
-  <div class="header_section">
-		<nav class="nav-bar">
-      <div class="logo"><a id="logo-anchor" href="index.html"><img src="static/logo.png"><span>Sugbo Heritage Puzzle</span></a></div>
-        <ul class="puzzle-list">
-          <li><a class="nav-link" href="index.html"><img src="static/piece.png"><span>Puzzle 1</span></a></li>
-          <li><a class="nav-link" href="index.html"><img src="static/piece.png"><span>Puzzle 2</span></a></li>
-          <li><a class="nav-link" href="index.html"><img src="static/piece.png"><span>Puzzle 3</span></a></li>
-        </ul>
+    <style media="all">
+      .mobile-display{display:none}
+      .desktop-display{display:block}
+      @media (max-width:1100px){
+      .desktop-display {display:none}
+      .mobile-display {display:block}
+      }
+    </style>
 
-    </nav>
-	</div>
-  <div id="container1">
-    <div id="special-box">
-      <div id="puzzle_canvas"></div>
+    <div class="mobile-display">
+      <div class="flexcontainer" >
+        <div class="logo flexitem"><div id="logo-anchor2"><img src="static/logo.png"><span>Sugbo Heritage Puzzle</span></div></div>
+        <div class="flexitem" id="notice" style="flex-grow:10;">
+          <img src="static/pardon.png" height=200px width=auto><br>
+
+          <p>To have a better experience, please use fullscreen (e.g., laptop or computer monitors) in solving the puzzles.
+          <br> Unfortunately, mobile view is not supported.</p></div>
+      </div>
     </div>
-    <div class="v1"></div>
-    <span class="buttons">
-      <button class="pushable">
-        <span class="shadow"></span>
-        <span class="edge solve-edge"></span>
-        <span class="front">
-        <span id="solve-button" class ="yassified-button">Solve</span>
-        </span>
-    </button>
-    <button class="pushable">
-      <span class="shadow"></span>
-      <span class="edge"></span>
-      <span class="front">
-      <span id="retry-button" class ="yassified-button">Retry</span>
-      </span>
-  </button>
-    </span>
-  </div>
-</body>
+
+    <div class="desktop-display">
+    	<div class="navig-bar">
+        <div class="logo"><div id="logo-anchor"><img src="static/logo.png"><span>Sugbo Heritage Puzzle</span></div></div>
+          <div class="puzzle-list">
+            <div><a class="navi-link" href="#" onclick="loadContent('1')"><img src="static/piece.png"><span>Puzzle 1</span></a></div>
+            <div><a class="navi-link" href="#" onclick="loadContent('2')"><img src="static/piece.png"><span>Puzzle 2</span></a></div>
+            <div><a class="navi-link" href="#" onclick="loadContent('3')"><img src="static/piece.png"><span>Puzzle 3</span></a></div>
+          </div>
+      </div>
+  
+      <div id="container1">
+        <div id="special-box">
+          <div id="puzzle_canvas"></div>
+        </div>
+        <div>
+          <div class="instructions"><h3>Instructions:</h3>
+            <div style="width:300px;">Complete the puzzle to unlock a ✨<b>Sugbuanon Heritage</b>✨.<br><br>
+              Press <kbd>Shift</kbd> when dragging a clump of puzzle pieces.</div></div>
+          <div class="buttons">
+          <button class="pushable">
+            <span class="shadow"></span>
+            <span class="edge solve-edge"></span>
+            <span class="front">
+            <span id="solve-button" class ="yassified-button">Solve</span>
+            </span>
+          </button>
+          <button class="pushable">
+            <span class="shadow"></span>
+            <span class="edge"></span>
+            <span class="front">
+            <span id="retry-button" class ="yassified-button">Retry</span>
+            </span>
+          </button>
+           </div>
+           <div style="height: 50px;width: 1px;"></div>
+        </div>
+      </div>
+
+    <!-- Modal -->
+      <div class="modal fade" id="infoModal" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-1" id="infoModalLabel">✨Sinulog Festival✨</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="modalbody" style="white-space: pre-line;text-align: justify;text-justify: inter-word;"></div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Got it!</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script>
+      var pages = { 1: ['✨Sinulog Festival✨', 'sinulog.jpg', 10], 2: ['✨Magellan\'s Cross✨', 'cross.jpg', 5], 3: ['✨Yap-San Diego Ancestral House✨', 'yap.jpg', 5]};
+      
+      function getModalContent(page, title){
+        $('#infoModalLabel').text(title);
+        $('#modalbody').html(contents[page]);
+      }
+
+      function loadContent(page){
+        let [title, image_name, stroke_width] = pages[page];
+        renderPuzzle(image_name, stroke_width);
+        getModalContent(page, title);
+      }
+      
+      loadContent('1');
+
+      function showInfo() {
+        let clapping = new Audio('static/clap.wav');
+        clapping.volume = 0.5;
+        $('#infoModal').modal('show');
+        $('.modal').on('hide.bs.modal', function() {
+            let memory = $(this).html();
+            $(this).html(memory);
+        });
+        clapping.play();
+        confetti.start();
+        setTimeout(()=>confetti.stop(), 1000);
+      }
+    </script>
+  </body>
 </html>
