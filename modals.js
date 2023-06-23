@@ -46,5 +46,33 @@ Here are some of the heritage features of the Yap-Sandiego Ancestral House:
 
 🔴<b>Family heirlooms</b>: The house also contains family heirlooms, such as jewelry, porcelain, and silver. These heirlooms were passed down from generation to generation, and they provide a glimpse into the history of the Yap-Sandiego family.
 
-The Yap-Sandiego Ancestral House is a valuable <em>historical and cultural resource</em>. It is a reminder of the <strong>rich Chinese heritage</strong> of Cebu City, and it is a testament to the <em>resilience of the Filipino people</em>. The house is now a museum, and it is open to the public for tours.`
+The Yap-Sandiego Ancestral House is a valuable <em>historical and cultural resource</em>. It is a reminder of the <strong>rich Chinese heritage</strong> of Cebu City, and it is a testament to the <em>resilience of the Filipino people</em>. The house is now a museum, and it is open to the public for tours.`,
+
+'4': `<iframe id="youtubevid" style="margin:auto; display:block;" width="100%" height="315" src="https://www.youtube.com/embed/n58NGnGxr0U?start=6" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<b>Fort San Pedro</b> (or <i>El Fuerte de San Pedro</i> in Spanish) is a triangular bastion fort located in Cebu City, Philippines. It was built by the Spanish in <b>1565</b>, under the command of Miguel López de Legazpi, the first governor of the Captaincy General of the Philippines. The fort served as the nucleus of the first Spanish settlement in the Philippines, and it played an important role in the Spanish conquest of the archipelago.
+
+Fort San Pedro is one of the <b>oldest</b> and <b>best-preserved</b> Spanish forts in the Philippines. It is designated as a <b>National Historical Landmark</b>. The fort is open to the public, and it is a popular tourist destination.
+
+The fort is built on a <b>triangular plot of land</b>, with the sea on two sides and a landward entrance. The walls of the fort are made of <b>stone</b>, and they are topped with <b>cannons</b>. The fort also has a <b>moat</b>, which was originally filled with water.
+
+Inside the fort, there is a <b>museum</b> that exhibits artifacts from the Spanish colonial period. There is also a <b>chapel</b>, which was built in the 17th century.
+
+Fort San Pedro is a valuable reminder of the <b>Spanish colonial period</b> in the Philippines. It is a well-preserved example of <b>Spanish military architecture</b>, and it is also a significant <b>historical site</b>.
+
+Here are some of the things you can do at Fort San Pedro:
+
+🔴 Visit the museum and learn about the history of the fort and the Spanish colonial period in the Philippines.
+
+🔴 See the cannons and other military artifacts that are on display.
+
+🔴 Walk around the ramparts and enjoy the views of the city and the harbor.
+
+🔴 Visit the chapel and admire the architecture.
+
+🔴 Have a picnic on the lawn.
+
+🔴 Take a photo with the statue of Miguel López de Legazpi and Antonio Pigafetta.
+
+Fort San Pedro is a great place to learn about <b>history</b>, <b>architecture</b>, and <b>culture</b>. It is a must-visit destination for anyone interested in the Spanish colonial period in the Philippines.
+`
 }
